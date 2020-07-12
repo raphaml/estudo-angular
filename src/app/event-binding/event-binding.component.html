@@ -1,0 +1,47 @@
+<mat-divider></mat-divider>
+<section>
+    <p>Event Binding Example</p>
+    
+    <p>
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="!btnEnable">Save</button>
+    </p>
+    
+    <p>
+        <button mat-raised-button color="primary" (click)="cancel()" [disabled]="!btnEnable">Cancel</button>
+    </p>
+    
+    
+    <mat-progress-spinner
+        color="color"
+        [mode]="spinnerMode"
+        value="0">
+    </mat-progress-spinner> 
+</section>
+
+<section>
+    <p>
+        <mat-checkbox (change)="cbChange($event)">Enable</mat-checkbox>
+    </p>
+
+    <mat-form-field>
+        <mat-select required 
+        [disabled]="!selectEnable">
+            <mat-option value="volvo">Volvo</mat-option>
+            <mat-option value="saab">Saab</mat-option>
+            <mat-option value="mercedes">Mercedes</mat-option>
+            <mat-option value="audi">Audi</mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>
+
+<section>
+    <p>Two Way Data Binding Example</p>
+    <mat-form-field>
+        <input matInput placeholder="First Name"
+        (input)="inputEvent($event)"
+        [value]="inputName">
+    </mat-form-field>
+
+    <p>Valor da variável inputName: {{inputName}}</p>
+    <p>Observa-se que conforme feita alteração no input já é refletido na variável</p>
+</section>
